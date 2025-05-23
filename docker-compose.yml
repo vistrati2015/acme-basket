@@ -1,0 +1,15 @@
+services:
+    api:
+        image: acme/api:latest
+        container_name: acme-api
+        ports:
+            - 9091:9000
+        volumes:
+            - ./:/app
+        depends_on:
+            - database
+        networks:
+            - acme-network
+networks:
+    acme-network:
+        driver: bridge
